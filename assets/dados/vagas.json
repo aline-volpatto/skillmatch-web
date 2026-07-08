@@ -1,0 +1,38 @@
+[
+   {"id": 1,
+    "empresa": "Tech Web",
+    "cargo": "Desenvolvedor(a) Front-End Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript"],
+    "salario": 4500,
+    "modalidade": "Presencial"
+  },
+  {"id": 2,
+    "empresa": "Aero Tech",
+    "cargo": "Desenvolvedor(a) Front-End Pleno",
+    "requisitos": ["HTML", "CSS", "JavaScript", "Node.js", "Google Cloud", "GitHub"],
+    "salario": 6000,
+    "modalidade": "Remoto"
+  },
+  {"id": 3,
+    "empresa": "New Wave",
+    "cargo": "Estágio Front-End",
+    "requisitos": ["HTML", "CSS", "JavaScript"],
+    "salario": 1600,
+    "modalidade": "Presencial"
+  },
+  {"id": 4,
+    "empresa": "Start Web",
+    "cargo": "Desenvolvedor(a) Front-End Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript", "Node.js"],
+    "salario": 3000,
+    "modalidade": "Hibrido"
+  },
+  {
+    "id": 5,
+    "empresa": "Design Tech",
+    "cargo": "Front-End Júnior (UI)",
+    "requisitos": ["HTML", "CSS", "Figma", "Acessibilidade"],
+    "salario": 4600,
+    "modalidade": "Remoto"
+  }
+]
