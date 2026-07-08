@@ -1,6 +1,7 @@
 import {carregarVagas} from "./dados.js"; //Importa as vagas de "dados.js"
 import {mostrarStatus, limparStatus} from "./ui.js"; //Importa as mensagens que aparecerão na tela.
 
+
 async function iniciarSistema(){
     mostrarStatus("Carregando vagas..."); // STATUS 1: Busca as vagas...
 
@@ -14,9 +15,11 @@ async function iniciarSistema(){
         limparStatus();
         console.log("Vagas carregadas com sucesso!", vagas); // STATUS 3: Vagas encontradas.
 
+        
+
     }catch (erro){
         mostrarStatus("Desculpe! Erro ao carregar as vagas. Tente novamente mais tarde! :) "); // STATUS 4: Erro. 
-        console.log("erro");
+        console.error(erro);
     }
 }
 
