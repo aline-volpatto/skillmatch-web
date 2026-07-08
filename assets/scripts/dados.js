@@ -20,8 +20,3 @@ export async function carregarVagas(){ //Nessa função, busco as vagas do arqui
     return vagas; //devolve instancias das vagas prontas.
 }
 
-
-//PERGUNTA:
-//Aqui não posso usar o formato de "fetch() .then() .then()"
-// por conta do async/await. Certo? Só existe essa forma acima
-//para usar com o async/await.
