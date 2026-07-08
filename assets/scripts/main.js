@@ -1,6 +1,6 @@
 import {carregarVagas} from "./dados.js"; //Importa as vagas de "dados.js"
 import {mostrarStatus, limparStatus} from "./ui.js"; //Importa as mensagens que aparecerão na tela.
-
+import {formulario} from "./ui.js";//Importa a função formulário do ui.js.
 
 async function iniciarSistema(){
     mostrarStatus("Carregando vagas..."); // STATUS 1: Busca as vagas...
@@ -25,14 +25,7 @@ async function iniciarSistema(){
 
 iniciarSistema(); //Iniciar o fluxo.
 
+formulario(); //liga o formulario da ui.js.
 
-
-
-//import {montarInterface} from "./ui.js";
-//import {Vaga} from "./motor.js";
-
-//console.log("main.js carregado - conectado");
-//console.log("motor.js", Vaga);
-//console.log("ui.js", montarInterface);
 
 
