@@ -1,38 +1,38 @@
-import {carregarVagas} from "./dados.js"; //Importa as vagas de "dados.js"
-import {mostrarStatus, limparStatus, formulario, mostrarCards} from "./ui.js"; //Importa as mensagens que aparecerão na tela.
+import {carregarVagas} from "./dados.js";
+import {mostrarStatus, limparStatus, formulario, mostrarCards, mostrarDestaque, mostrarPerfil} from "./ui.js";
+let vagasCarregadas = [];
 
-let vagasCarregadas = []; //guarda as vagas num array vazio que tem comunicacao com o cormulário em ui.js
 
 async function iniciarSistema(){
-    mostrarStatus("Carregando vagas..."); // STATUS 1: Busca as vagas...
+    mostrarStatus("Carregando vagas...");
 
     try{
-        const vagas = await carregarVagas(); //Await necessário, pois é assíncrono.
+        const vagas = await carregarVagas();
         if (vagas.length === 0){
-            mostrarStatus("Nenhuma vaga por aqui."); // STATUS 2: Nenhuma vaga encontrada.
+            mostrarStatus("Nenhuma vaga por aqui.");
             return;
         }
 
-        vagasCarregadas = vagas; //guarda as vagas no array que vem de ui.js
-
+        vagasCarregadas = vagas;
         limparStatus();
-        console.log("Vagas carregadas com sucesso!", vagas); // STATUS 3: Vagas encontradas.
-
-        
+        console.log("Vagas carregadas com sucesso!", vagas);
 
     }catch (erro){
-        mostrarStatus("Desculpe! Erro ao carregar as vagas. Tente novamente mais tarde! :) "); // STATUS 4: Erro. 
+        mostrarStatus("Desculpe! Erro ao carregar as vagas. Tente novamente mais tarde! :) ");
         console.error(erro);
     }
 }
 
-iniciarSistema(); //Iniciar o fluxo.
+iniciarSistema();
 
 formulario(function(candidato){
     const resultados = vagasCarregadas.map(vaga => vaga.calcularCompatibilidade(candidato));
-    mostrarCards(resultados); //renderiza os cards
+    const melhorVaga = resultados.reduce((melhor, atual) =>
+        atual.compatibilidade > melhor.compatibilidade ? atual : melhor
+);
+
+mostrarCards(resultados);
+mostrarDestaque(melhorVaga); 
+mostrarPerfil(candidato); 
+
 });
-    
-
-
-
