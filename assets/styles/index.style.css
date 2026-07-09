@@ -2,3 +2,17 @@
     width: 100px;
     height: auto;
 }
+
+.grade-vagas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.card{
+    flex: 1 1 250px;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+}
