@@ -1,5 +1,5 @@
 import {carregarVagas} from "./dados.js";
-import {mostrarStatus, limparStatus, formulario, mostrarCards, mostrarDestaque, mostrarPerfil} from "./ui.js";
+import {mostrarStatus, limparStatus, formulario, mostrarCards, mostrarDestaque, mostrarPerfil, carregarPerfilSalvo} from "./ui.js";
 let vagasCarregadas = [];
 
 
@@ -36,3 +36,5 @@ mostrarDestaque(melhorVaga);
 mostrarPerfil(candidato); 
 
 });
+
+carregarPerfilSalvo(); //carregar o localStorage
