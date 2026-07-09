@@ -1,6 +1,7 @@
 import {carregarVagas} from "./dados.js"; //Importa as vagas de "dados.js"
-import {mostrarStatus, limparStatus} from "./ui.js"; //Importa as mensagens que aparecerão na tela.
-import {formulario} from "./ui.js";//Importa a função formulário do ui.js.
+import {mostrarStatus, limparStatus, formulario, mostrarCards} from "./ui.js"; //Importa as mensagens que aparecerão na tela.
+
+let vagasCarregadas = []; //guarda as vagas num array vazio que tem comunicacao com o cormulário em ui.js
 
 async function iniciarSistema(){
     mostrarStatus("Carregando vagas..."); // STATUS 1: Busca as vagas...
@@ -11,6 +12,8 @@ async function iniciarSistema(){
             mostrarStatus("Nenhuma vaga por aqui."); // STATUS 2: Nenhuma vaga encontrada.
             return;
         }
+
+        vagasCarregadas = vagas; //guarda as vagas no array que vem de ui.js
 
         limparStatus();
         console.log("Vagas carregadas com sucesso!", vagas); // STATUS 3: Vagas encontradas.
@@ -25,7 +28,11 @@ async function iniciarSistema(){
 
 iniciarSistema(); //Iniciar o fluxo.
 
-formulario(); //liga o formulario da ui.js.
+formulario(function(candidato){
+    const resultados = vagasCarregadas.map(vaga => vaga.calcularCompatibilidade(candidato));
+    mostrarCards(resultados); //renderiza os cards
+});
+    
 
 
 
