@@ -13,31 +13,10 @@
     --cor-texto-input: #1F2937;
 }
 
-@media(max-width: 600px){
-    :root{
-       --cor-fundo: #0E7490;
-       --cor-fundo-secundaria: #6D28D9;
-       --cor-botao: #06B6D4;
-       --cor-botao-hover: #22D3EE; 
-    }
-
-    main{
-        padding: 20px;
-    }
-
-    header{
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .logo{
-        width: 70px;
-    }
-
-    h1{
-        font-size: 1.8rem;
-    }
+input:focus,
+button:focus { /*Adição de foco visível - permite a navegação por teclado.*/
+    outline: 3px solid #22D3EE;
+    outline-offset: 2px;
 }
 
 
@@ -161,3 +140,36 @@ main>section{ /*Estabeleci flex para o main, então as duas section (filhas) fic
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+
+@media(max-width: 600px){
+    :root{
+       --cor-fundo: #0E7490;
+       --cor-fundo-secundaria: #6D28D9;
+       --cor-botao: #06B6D4;
+       --cor-botao-hover: #22D3EE; 
+    }
+
+    button{
+        color:#1F2937; 
+    }
+
+    main{
+        padding: 20px;
+    }
+
+    header{
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .logo{
+        width: 70px;
+    }
+
+    h1{
+        font-size: 1.8rem;
+    }
+}
+
