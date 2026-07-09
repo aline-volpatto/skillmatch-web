@@ -11,7 +11,7 @@ export function limparStatus (){ //Limpa a mensagem de status, quando as vagas c
 }
 
 //Pega o formulário do html, fica disponível para preencimento, envia o formulário e previne de recarregar a página.
-export function formulario(){
+export function formulario(aoEnviar){
     const form = document.getElementById("form-perfil");
     const erro = document.getElementById("form-erro");
 
@@ -41,6 +41,59 @@ export function formulario(){
             experienciaMeses: Number(experiencia)
         };
 
-        console.log("Candidato", candidato);
+        aoEnviar(candidato);
     });
+}
+
+export function mostrarCards(resultados){ //renderiza um card para cada vaga.
+    const lista = document.getElementById("lista-vagas");
+    lista.innerHTML = ""; //para limpar os cards anteriores.
+
+    resultados.forEach(resultado => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+            <h3>${resultado.empresa}</h3>
+            <p>${resultado.cargo}</p>
+            <p><strong>${resultado.compatibilidade}%</strong> — ${resultado.classificacao}</p>
+            <p>Você possui essas habilidades: ${resultado.habilidadesEncontradas.join(", ") || "nenhuma"} </p>
+            <p>Falta estudar: ${resultado.habilidadesFaltantes.join(", ") || "nenhuma"}</p>
+            `;
+
+            lista.appendChild(card);
+
+    });
+}
+
+
+
+
+export function mostrarDestaque(melhorVaga){ //Mostra o destaque da vaga mais compatível.
+    const destaque = document.getElementById("destaque");
+
+    let recomendacao;
+    if (melhorVaga.habilidadesFaltantes.length === 0){
+        recomendacao = "Parabéns! Você possui todo o conhecimento para essa vaga"
+    }else{
+        recomendacao = `Para se candidatar a essa vaga, você precisa reforçar o conhecimento em: ${melhorVaga.habilidadesFaltantes.join(", ")}.`;
+    }
+
+    destaque.innerHTML = `
+    <h3>Vaga mais compatível</h3>
+    <p><strong>${melhorVaga.empresa}</strong> - ${melhorVaga.compatibilidade}% de compatibilidade.</p>
+    <p>${recomendacao}</p>
+    `;
+}
+
+
+
+export function mostrarPerfil(candidato){ //resumo do perfil do candidato.
+    const destaque = document.getElementById("destaque");
+
+    const perfil = document.createElement("p"); //cria o parágrafo do perfil do candidato com experiencia.
+    perfil.classList.add("perfil-resumo");
+    perfil.textContent = `Seu perfil: ${candidato.nome} - ${candidato.area} - ${candidato.experienciaMeses} meses de experiência`;
+
+    destaque.prepend(perfil); //prepend = organiza o perfil do candidato antes do conteúdo de destaque das vagas.
+
 }
