@@ -14,6 +14,7 @@ export function limparStatus (){ //Limpa a mensagem de status, quando as vagas c
 export function formulario(aoEnviar){
     const form = document.getElementById("form-perfil");
     const erro = document.getElementById("form-erro");
+   
 
     form.addEventListener("submit", function (evento){
         evento.preventDefault();
@@ -38,8 +39,10 @@ export function formulario(aoEnviar){
             nome: nome,
             area: area,
             habilidades: habilidades,
-            experienciaMeses: Number(experiencia)
+            experienciaMeses: Number(experiencia),
         };
+
+        localStorage.setItem("perfil", JSON.stringify(candidato));//salva o perfil do candidato em local storage.
 
         aoEnviar(candidato);
     });
@@ -95,5 +98,22 @@ export function mostrarPerfil(candidato){ //resumo do perfil do candidato.
     perfil.textContent = `Seu perfil: ${candidato.nome} - ${candidato.area} - ${candidato.experienciaMeses} meses de experiência`;
 
     destaque.prepend(perfil); //prepend = organiza o perfil do candidato antes do conteúdo de destaque das vagas.
+
+}
+
+
+export function carregarPerfilSalvo(){ //Função que devolve os dados digitados no perfil com localstorage.
+    const informacoesPerfil = localStorage.getItem("perfil");
+
+    if(informacoesPerfil === null){ //caso nao encontre as informacoes salvas (primeira vez que acessa, volta vazio).
+        return;
+    }
+
+    const perfil = JSON.parse(informacoesPerfil);
+
+    document.getElementById("nome").value=perfil.nome;
+    document.getElementById("area").value=perfil.area;
+    document.getElementById("habilidades").value=perfil.habilidades;
+    document.getElementById("experiencia").value=perfil.experienciaMeses;
 
 }
