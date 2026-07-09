@@ -11,7 +11,7 @@ export function limparStatus (){ //Limpa a mensagem de status, quando as vagas c
 }
 
 //Pega o formulário do html, fica disponível para preencimento, envia o formulário e previne de recarregar a página.
-export function formulario(){
+export function formulario(enviar){
     const form = document.getElementById("form-perfil");
     const erro = document.getElementById("form-erro");
 
@@ -41,6 +41,30 @@ export function formulario(){
             experienciaMeses: Number(experiencia)
         };
 
-        console.log("Candidato", candidato);
+        enviar(candidato);
     });
+}
+
+export function mostrarCards(resultados){ //desenha um card para cada vaga.
+    const lista = document.getElementById("lista-vagas"); //onde estão os cards
+    lista.innerHtml = ""; //limpa cards anteriores.
+
+    resultados.forEach(resultado => {
+        //Cria o card:
+        const card = document.createElement("div");
+        card.classList.add("card"); //gera uma classe "card" para estilizar 
+
+        //Preenche o card:
+        card.innerHTML= `
+        <h3>${resultado.empresa}<h3>
+        <p>${resultado.cargo}<p>
+        <p><strong>${resultado.compatibilidade}%</strong> - ${resultado.classificacao}<p>
+        <p>Você tem: ${resultado.habilidadesEncontradas.join(", ") || "nenhuma"}</p>
+        <p>Falta estudar: ${resultado.habilidadesFaltantes.join(", ") || "nenhuma"}</p>
+        `;
+
+        lista.appendChild(card);
+
+    });
+    
 }
