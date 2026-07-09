@@ -13,8 +13,11 @@ export class Vaga{ //Calcula a própria compatibilidade
 
 //Método
 calcularCompatibilidade(candidato){
-    const encontradas = this.requisitos.filter(requisito => candidato.habilidades.includes(requisito));
-    const faltantes = this.requisitos.filter(requisito => !candidato.habilidades.includes(requisito));
+
+    const habilidadesMinusculas = candidato.habilidades.map(habilidade => habilidade.toLowerCase());
+
+    const encontradas = this.requisitos.filter(requisito => habilidadesMinusculas.includes(requisito.toLowerCase()));
+    const faltantes = this.requisitos.filter(requisito => !habilidadesMinusculas.includes(requisito.toLowerCase()));
     const percentual = Math.round((encontradas.length / this.requisitos.length) * 100);
     
     return{
