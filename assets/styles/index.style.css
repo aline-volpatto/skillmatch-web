@@ -27,6 +27,19 @@ body{
     color: var(--cor-texto);
 }
 
+body.dark-mode{
+    --cor-fundo: #010002;           
+    --cor-fundo-secundaria: #151336;
+    --cor-botao: #221f3b;            
+    --cor-botao-hover: #342f5b;      
+    --cor-titulo: #F1F5F9;
+    --cor-texto: #CBD5E1;
+    --cor-label: #E5E7EB;
+    --cor-titulo: #E2E8F0;   
+    --cor-texto: #94A3B8;    
+    --cor-label: #CBD5E1; 
+}
+
 input{
     border-radius: 15px;
     background-color: var(--cor-input);
@@ -148,10 +161,31 @@ main>section{ /*Estabeleci flex para o main, então as duas section (filhas) fic
        --cor-fundo-secundaria: #6D28D9;
        --cor-botao: #06B6D4;
        --cor-botao-hover: #22D3EE; 
+
+       --cor-titulo: #FFFFFF;
+       --cor-texto: #CBD5E1;
+       --cor-label: #E5E7EB;
+
+       --cor-input: #FFFFFF;
+       --cor-texto-input: #1F2937;
+
     }
 
+    body.dark-mode {
+        --cor-fundo: #0A2A33;            
+        --cor-fundo-secundaria: #1A1633;
+        --cor-botao: #3a3666;            
+        --cor-botao-hover: #3c3669;      
+        --cor-titulo: #F1F5F9;
+        --cor-texto: #CBD5E1;
+        --cor-label: #E5E7EB;
+        --cor-titulo: #E2E8F0;   
+        --cor-texto: #94A3B8;    
+        --cor-label: #CBD5E1; 
+    }    
+
     button{
-        color:#1F2937; 
+        color:#CBD5E1; 
     }
 
     main{
