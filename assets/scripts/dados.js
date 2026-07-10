@@ -15,6 +15,9 @@ export async function carregarVagas(){ //Nessa função, busco as vagas do arqui
         dadosVaga.requisitos,
         dadosVaga.salario,
         dadosVaga.modalidade,
+        dadosVaga.cidade,
+        dadosVaga.lat,
+        dadosVaga.long,
     ));
 
     return vagas; //devolve instancias das vagas prontas.
