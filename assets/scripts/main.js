@@ -1,5 +1,7 @@
 import {carregarVagas} from "./dados.js";
 import {mostrarStatus, limparStatus, formulario, mostrarCards, mostrarDestaque, mostrarPerfil, carregarPerfilSalvo, alternarTema} from "./ui.js";
+import { calculoDistancia } from "./motor.js";
+import { obterLocalizacao } from "./funcionalidades.js";
 let vagasCarregadas = [];
 
 
@@ -25,11 +27,28 @@ async function iniciarSistema(){
 
 iniciarSistema();
 
-formulario(function(candidato){
+formulario(async function(candidato){
     const resultados = vagasCarregadas.map(vaga => vaga.calcularCompatibilidade(candidato));
     const melhorVaga = resultados.reduce((melhor, atual) =>
         atual.compatibilidade > melhor.compatibilidade ? atual : melhor
 );
+
+//Implementa a geolocalização
+    try{
+        const coords = await obterLocalizacao();
+
+        resultados.forEach((resultado, indice) => { //Adiciona a distancia para cada card (vaga)
+            const vaga = vagasCarregadas[indice];
+
+            resultado.distancia = calculoDistancia(coords.lat, coords.long, vaga.lat, vaga.long);
+            resultado.cidade = vaga.cidade;
+    });
+    resultados.sort((a, b) => b.compatibilidade - a.compatibilidade);
+    }catch (erro){
+        console.log("Sem localização: ", erro);
+    }
+    
+
 
 mostrarCards(resultados);
 mostrarDestaque(melhorVaga); 
