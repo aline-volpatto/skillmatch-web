@@ -44,8 +44,8 @@ calcularCompatibilidade(candidato){
 }
 
 export class VagaFrontEnd extends Vaga{
-    constructor(id, empresa, cargo, requisitos, salario, modalidade, senioridade){
-        super(id, empresa, cargo, requisitos, salario, modalidade);
+    constructor(id, empresa, cargo, requisitos, salario, modalidade, cidade, lat, long, senioridade){
+        super(id, empresa, cargo, requisitos, salario, modalidade, cidade, lat, long);
         this.senioridade = senioridade;
     }
 

@@ -7,7 +7,8 @@
     "modalidade": "Presencial",
     "cidade": "Florianópolis",
     "lat": -27.5954,
-    "long": -48.5480
+    "long": -48.5480,
+    "senioridade":"Júnior"
   },
   {"id": 2,
     "empresa": "Aero Tech",
@@ -17,7 +18,8 @@
     "modalidade": "Remoto",
     "cidade": "São José",
     "lat": -27.6136,
-    "long": -48.6366
+    "long": -48.6366,
+    "senioridade":"Pleno"
   },
   {"id": 3,
     "empresa": "New Wave",
@@ -27,7 +29,8 @@
     "modalidade": "Presencial",
     "cidade": "Balneário Camboriú",
     "lat": -26.9926,
-    "long": -48.6352
+    "long": -48.6352,
+    "senioridade":"Estagiário"
   },
   {"id": 4,
     "empresa": "Start Web",
@@ -37,7 +40,8 @@
     "modalidade": "Hibrido",
     "cidade": "Blumenau",
     "lat": -26.9194,
-    "long": -49.0661
+    "long": -49.0661,
+    "senioridade":"Júnior"
   },
   {
     "id": 5,
@@ -48,6 +52,7 @@
     "modalidade": "Remoto",
     "cidade": "Joinville",
     "lat": -26.3044,
-    "long": -48.8456
+    "long": -48.8456,
+    "senioridade":"Júnior"
   }
 ]
