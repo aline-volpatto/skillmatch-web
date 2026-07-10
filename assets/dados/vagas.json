@@ -4,35 +4,50 @@
     "cargo": "Desenvolvedor(a) Front-End Júnior",
     "requisitos": ["HTML", "CSS", "JavaScript"],
     "salario": 4500,
-    "modalidade": "Presencial"
+    "modalidade": "Presencial",
+    "cidade": "Florianópolis",
+    "lat": -27.5954,
+    "long": -48.5480
   },
   {"id": 2,
     "empresa": "Aero Tech",
     "cargo": "Desenvolvedor(a) Front-End Pleno",
-    "requisitos": ["HTML", "CSS", "JavaScript", "Node.js", "Google Cloud", "GitHub"],
+    "requisitos": ["Node.js", "Google Cloud", "GitHub"],
     "salario": 6000,
-    "modalidade": "Remoto"
+    "modalidade": "Remoto",
+    "cidade": "São José",
+    "lat": -27.6136,
+    "long": -48.6366
   },
   {"id": 3,
     "empresa": "New Wave",
     "cargo": "Estágio Front-End",
-    "requisitos": ["HTML", "CSS", "JavaScript"],
+    "requisitos": ["HTML","CSS", "Figma", "Git"],
     "salario": 1600,
-    "modalidade": "Presencial"
+    "modalidade": "Presencial",
+    "cidade": "Balneário Camboriú",
+    "lat": -26.9926,
+    "long": -48.6352
   },
   {"id": 4,
     "empresa": "Start Web",
     "cargo": "Desenvolvedor(a) Front-End Júnior",
-    "requisitos": ["HTML", "CSS", "JavaScript", "Node.js"],
+    "requisitos": ["CSS", "JavaScript", "Node.js", "React"],
     "salario": 3000,
-    "modalidade": "Hibrido"
+    "modalidade": "Hibrido",
+    "cidade": "Blumenau",
+    "lat": -26.9194,
+    "long": -49.0661
   },
   {
     "id": 5,
     "empresa": "Design Tech",
     "cargo": "Front-End Júnior (UI)",
-    "requisitos": ["HTML", "CSS", "Figma", "Acessibilidade"],
+    "requisitos": ["HTML", "CSS", "Figma","Node.js", "Acessibilidade"],
     "salario": 4600,
-    "modalidade": "Remoto"
+    "modalidade": "Remoto",
+    "cidade": "Joinville",
+    "lat": -26.3044,
+    "long": -48.8456
   }
 ]
