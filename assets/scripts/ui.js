@@ -59,8 +59,8 @@ export function mostrarCards(resultados){ //renderiza um card para cada vaga.
             <h3>${resultado.empresa}</h3>
             <p>${resultado.cargo}</p>
             <p><strong>${resultado.compatibilidade}%</strong> — ${resultado.classificacao}</p>
-            <p>Você possui essas habilidades: ${resultado.habilidadesEncontradas.join(", ") || "nenhuma"} </p>
-            <p>Falta estudar: ${resultado.habilidadesFaltantes.join(", ") || "nenhuma"}</p>
+            <p>Você possui essas habilidades: ${resultado.habilidadesEncontradas.join(", ") || "nenhuma habilidade em comum."} </p>
+            <p>Falta estudar: ${resultado.habilidadesFaltantes.join(", ") || "você já possui todas as habilidades para essa vaga!"}</p>
             `;
 
             lista.appendChild(card);
@@ -115,5 +115,35 @@ export function carregarPerfilSalvo(){ //Função que devolve os dados digitados
     document.getElementById("area").value=perfil.area;
     document.getElementById("habilidades").value=perfil.habilidades;
     document.getElementById("experiencia").value=perfil.experienciaMeses;
+
+}
+
+export function alternarTema(){ //alterna entre tema dark e light e salva em localStorage.
+    const botao = document.getElementById("botao-tema");
+    const salvarTema = localStorage.getItem("tema");
+    const logo = document.getElementById("logo");
+
+
+    if(salvarTema === "escuro"){
+        document.body.classList.add("dark-mode");
+        botao.textContent = "Light mode";
+        logo.src = "./assets/img/logo-invertido.png";
+    }
+
+    botao.addEventListener("click", function(){
+        document.body.classList.toggle("dark-mode"); //Uso do toggle para alternar entre as classes. Se a classe não está, ele adiciona. Se está, ele remove. 
+        
+        if(document.body.classList.contains("dark-mode")){
+            botao.textContent = "Light mode";
+            localStorage.setItem("tema", "escuro");
+            logo.src = "./assets/img/logo-invertido.png";
+
+        }else{
+            botao.textContent = "Dark mode";
+            localStorage.setItem("tema", "claro");
+            logo.src = "./assets/img/logo.png";
+
+        }
+    });
 
 }
