@@ -2,13 +2,16 @@
 
 //Classe
 export class Vaga{ //Calcula a própria compatibilidade
-    constructor(id, empresa, cargo, requisitos, salario, modalidade){ //Recebe os dados e guarda em "this"
+    constructor(id, empresa, cargo, requisitos, salario, modalidade, cidade, lat, long){ //Recebe os dados e guarda em "this"
         this.id= id;
         this.empresa = empresa;
         this.cargo = cargo;
         this.requisitos = requisitos;
         this.salario = salario;
         this.modalidade = modalidade;
+        this.cidade = cidade;
+        this.lat = lat;
+        this.long = long;
     }
 
 //Método
@@ -65,3 +68,20 @@ export function criarContadorDeAnalises(){
 export function finalizarAnalise(nomeCandidato, callback){
     callback(nomeCandidato);
 }
+
+
+//Calculo da distância entre candidato e cidades das vagas
+export function calculoDistancia(lat1, long1, lat2, long2){
+    const R = 6371; //raio da Terra(km)
+    const dLat = (lat2-lat1) * Math.PI/180;
+    const dLong = (long2-long1) * Math.PI/180;
+
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2)+
+    Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+    Math.sin(dLong/2) * Math.sin(dLong/2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return Math.round(R * c);
+} 
+//Fórmula de Haversine: Calcula dois pontos na superfície da Terra, 
+//considerando a curvatura da Terra. 
