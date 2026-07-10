@@ -1,8 +1,9 @@
 import {carregarVagas} from "./dados.js";
 import {mostrarStatus, limparStatus, formulario, mostrarCards, mostrarDestaque, mostrarPerfil, carregarPerfilSalvo, alternarTema} from "./ui.js";
-import { calculoDistancia } from "./motor.js";
+import { calculoDistancia, criarContadorDeAnalises } from "./motor.js";
 import { obterLocalizacao } from "./funcionalidades.js";
 let vagasCarregadas = [];
+const contarAnalises = criarContadorDeAnalises();
 
 
 async function iniciarSistema(){
@@ -28,6 +29,9 @@ async function iniciarSistema(){
 iniciarSistema();
 
 formulario(async function(candidato){
+    const numeroAnalise = contarAnalises(); //faz a contagem, incrementando o numero de vezes que foi consultado e retorna o total.
+    console.log("analise número: ", numeroAnalise);
+
     const resultados = vagasCarregadas.map(vaga => vaga.calcularCompatibilidade(candidato));
     const melhorVaga = resultados.reduce((melhor, atual) =>
         atual.compatibilidade > melhor.compatibilidade ? atual : melhor
