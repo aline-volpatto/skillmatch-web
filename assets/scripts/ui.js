@@ -61,14 +61,13 @@ export function mostrarCards(resultados){ //renderiza um card para cada vaga.
             <p><strong>${resultado.compatibilidade}%</strong> — ${resultado.classificacao}</p>
             <p>Você possui essas habilidades: ${resultado.habilidadesEncontradas.join(", ") || "nenhuma habilidade em comum."} </p>
             <p>Falta estudar: ${resultado.habilidadesFaltantes.join(", ") || "você já possui todas as habilidades para essa vaga!"}</p>
+            ${resultado.distancia !== undefined ? `<p>A empresa localiza-se em: ${resultado.cidade} — ${resultado.distancia} km de você</p>` : ""}
             `;
 
             lista.appendChild(card);
 
     });
 }
-
-
 
 
 export function mostrarDestaque(melhorVaga){ //Mostra o destaque da vaga mais compatível.
@@ -84,6 +83,7 @@ export function mostrarDestaque(melhorVaga){ //Mostra o destaque da vaga mais co
     destaque.innerHTML = `
     <h3>Vaga mais compatível</h3>
     <p><strong>${melhorVaga.empresa}</strong> - ${melhorVaga.compatibilidade}% de compatibilidade.</p>
+     ${melhorVaga.distancia !== undefined ? `<p> A empresa localiza-se em:  ${melhorVaga.cidade} — ${melhorVaga.distancia} km de você</p>`: ""}
     <p>${recomendacao}</p>
     `;
 }
