@@ -61,6 +61,14 @@
         <h2 id="titulo-resultados">Vagas encontradas</h2>
         <p id="status" aria-live="polite"></p>   <!-- status: "carregando... erro..."" -->
 
+        <div id="filtro-container">
+             <label for="filtro-ordenacao">Ordenar por:</label>
+            <select id="filtro-ordenacao">
+             <option value="compatibilidade">Mais compatíveis</option>
+             <option value="distancia">Mais próximas</option>
+             </select>
+        </div>
+
        
         <div id="destaque"></div> <!-- melhor vaga encontrada -->
         <div id="lista-vagas" class="grade-vagas"></div> <!-- lista com as outras vagas -->
