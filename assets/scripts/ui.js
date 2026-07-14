@@ -147,3 +147,15 @@ export function alternarTema(){ //alterna entre tema dark e light e salva em loc
     });
 
 }
+
+
+export function naoDeuMatch(){
+    const destaque = document.getElementById("destaque");
+    const lista = document.getElementById("lista-vagas");
+
+    lista.innerHTML = ""; //limpa os cards anteriores
+    destaque.innerHTML = ` 
+    <h3>Poxa, que pena... Nenhuma vaga encontrada para seu perfil!</h3>
+    <p>Suas habilidades não deram match com nenhuma vaga disponível. Mas continue estudando, temos certeza de que futuramente encontraremos a sua vaga! :D </p>
+    `; //substitui o card destaque pela frase.
+}
