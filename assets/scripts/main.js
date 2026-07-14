@@ -3,6 +3,7 @@ import {mostrarStatus, limparStatus, formulario, mostrarCards, mostrarDestaque, 
 import { calculoDistancia, criarContadorDeAnalises } from "./motor.js";
 import { obterLocalizacao } from "./funcionalidades.js";
 let vagasCarregadas = [];
+let ultimosResultados = []; // guarda os resultados da última análise.
 const contarAnalises = criarContadorDeAnalises();
 
 
@@ -16,7 +17,7 @@ async function iniciarSistema(){
         }
 
         vagasCarregadas = vagas;
-        limparStatus();
+
         console.log("Vagas carregadas com sucesso!", vagas); //Usado para teste, para saber se as vagas foram carregadas. 
 
     }catch (erro){
@@ -62,6 +63,8 @@ formulario(async function(candidato){
         console.log("Sem localização: ", erro);
     }
     
+    ultimosResultados = resultados; //guarda resultados para poder ordenar quando o filtro for aplicado.
+
 
 
 mostrarCards(resultados);
@@ -69,6 +72,20 @@ mostrarDestaque(melhorVaga);
 mostrarPerfil(candidato); 
 
 });
+
+
+const filtro = document.getElementById("filtro-ordenacao"); //Configuracao do filtro.
+filtro.addEventListener("change", function(){
+    const escolha = filtro.value;
+
+    if(escolha === "compatibilidade"){
+        ultimosResultados.sort((a,b) => b.compatibilidade - a.compatibilidade); //maior porcentagem primeiro.
+    }else if (escolha === "distancia"){
+        ultimosResultados.sort((a,b) => a.distancia - b.distancia); //mais perto primeiro.
+    }
+
+    mostrarCards(ultimosResultados); //mostra os cards com nova ordem.
+})
 
 carregarPerfilSalvo(); //carregar o localStorage
 alternarTema();
