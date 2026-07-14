@@ -207,3 +207,26 @@ main>section{ /*Estabeleci flex para o main, então as duas section (filhas) fic
     }
 }
 
+#filtro-container{
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+#filtro-ordenacao{
+    border-radius: 15px;
+    padding: 10px 16px;
+    border: none;
+    background-color: var(--cor-input);
+    color: var(--cor-texto-input);
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#filtro-ordenacao:hover {
+    box-shadow: 0 4px 12px rgba(2, 2, 5, 0.3);
+}
+
+
