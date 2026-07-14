@@ -1,6 +1,8 @@
 import {VagaFrontEnd} from "./motor.js"; //Busca a classe Vaga.
 
 export async function carregarVagas(){ //Nessa função, busco as vagas do arquivo json de forma assíncrona. Retorna um array de vagas convertido para o main.js usar.
+    await new Promise(resolve => setTimeout(resolve, 3000)); //Simula uma consulta ao API com delay de 3 segundos.
+    console.log("Carregando vagas...");
     const resposta = await fetch("./assets/dados/vagas.json"); //Aqui espera o arquivo chegar.
     
     if (!resposta.ok){ //O fetch não considera 404 como erro; o .ok detecta isso e eu lanço o erro para o catch tratar no main.js
