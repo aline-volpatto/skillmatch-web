@@ -1,0 +1,232 @@
+:root{
+    --cor-fundo: #6D28D9; 
+    --cor-fundo-secundaria: #1E1B4B;
+
+    --cor-titulo: #FFFFFF;
+    --cor-texto: #CBD5E1;
+    --cor-label: #E5E7EB;
+
+    --cor-botao: #4F46E5;
+    --cor-botao-hover: #6366F1;
+
+    --cor-input: #FFFFFF;
+    --cor-texto-input: #1F2937;
+}
+
+input:focus,
+button:focus { /*Adição de foco visível - permite a navegação por teclado.*/
+    outline: 3px solid #22D3EE;
+    outline-offset: 2px;
+}
+
+
+
+body{
+    background-image: linear-gradient(to top left, var(--cor-fundo), var(--cor-fundo-secundaria));
+    font-family: "Poppins", sans-serif;
+    color: var(--cor-texto);
+}
+
+body.dark-mode{
+    --cor-fundo: #010002;           
+    --cor-fundo-secundaria: #151336;
+    --cor-botao: #221f3b;            
+    --cor-botao-hover: #342f5b;      
+    --cor-titulo: #F1F5F9;
+    --cor-texto: #CBD5E1;
+    --cor-label: #E5E7EB;
+    --cor-titulo: #E2E8F0;   
+    --cor-texto: #94A3B8;    
+    --cor-label: #CBD5E1; 
+}
+
+input{
+    border-radius: 15px;
+    background-color: var(--cor-input);
+    color: var(--cor-texto-input);
+    padding: 8px 12px;
+    border: none;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+
+form div{
+    margin-bottom: 12px;
+}
+
+
+
+button{
+    border-radius: 15px;
+    padding: 14px 28px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    background-color: var(--cor-botao);
+    color: var(--cor-titulo);
+}
+
+input:hover{
+    background-color: var(--cor-titulo);
+    box-shadow: 0 8px 20px rgba(2, 2, 5, 0.4);
+}
+
+button:hover{
+    background-color: var(--cor-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(2, 2, 5, 0.4);
+}
+
+h1,h2{
+     color: var(--cor-titulo);
+}
+
+label{
+    color: var(--cor-label);
+}
+
+
+header{
+    display: flex;
+    align-items: center;
+    padding: 20px 60px;
+    gap:20px
+}
+
+header h1{
+    margin:0;
+}
+
+header p{
+    margin:0;
+    width: 100%
+}
+
+main{
+    display:flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 60px;
+    align-items: center;
+}
+
+main>section{ /*Estabeleci flex para o main, então as duas section (filhas) ficarão lado a lado com espaço entre elas. */
+    flex: 1; /*Faz as duas section dividirem o espaço entre elas.*/
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 900px;
+}
+
+#destaque{
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.logo{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+
+}
+
+.grade-vagas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.card{
+    flex: 1 1 250px;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+@media(max-width: 600px){
+    :root{
+       --cor-fundo: #0E7490;
+       --cor-fundo-secundaria: #6D28D9;
+       --cor-botao: #06B6D4;
+       --cor-botao-hover: #22D3EE; 
+
+       --cor-titulo: #FFFFFF;
+       --cor-texto: #CBD5E1;
+       --cor-label: #E5E7EB;
+
+       --cor-input: #FFFFFF;
+       --cor-texto-input: #1F2937;
+
+    }
+
+    body.dark-mode {
+        --cor-fundo: #0A2A33;            
+        --cor-fundo-secundaria: #1A1633;
+        --cor-botao: #3a3666;            
+        --cor-botao-hover: #3c3669;      
+        --cor-titulo: #F1F5F9;
+        --cor-texto: #CBD5E1;
+        --cor-label: #E5E7EB;
+        --cor-titulo: #E2E8F0;   
+        --cor-texto: #94A3B8;    
+        --cor-label: #CBD5E1; 
+    }    
+
+    button{
+        color:#CBD5E1; 
+    }
+
+    main{
+        padding: 20px;
+    }
+
+    header{
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .logo{
+        width: 70px;
+    }
+
+    h1{
+        font-size: 1.8rem;
+    }
+}
+
+#filtro-container{
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+#filtro-ordenacao{
+    border-radius: 15px;
+    padding: 10px 16px;
+    border: none;
+    background-color: var(--cor-input);
+    color: var(--cor-texto-input);
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#filtro-ordenacao:hover {
+    box-shadow: 0 4px 12px rgba(2, 2, 5, 0.3);
+}
+
+

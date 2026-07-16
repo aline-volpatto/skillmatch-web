@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- Fonte -->
+
+
+    <!-- SEO -->
+    <title>SkillMatch - Compatibilidade com vagas Front-End</title>
+    <meta name="description" content="O SkillMatch analisa seu perfil e mostra o percentual de compatibilidade com vagas de front-end júnior, com recomendações de estudos.">
+
+    <!-- liga o CSS -->
+     <link rel="stylesheet" href="./assets/styles/index.style.css" />
+</head>
+<body>
+
+    <!-- cabeçalho -->
+    <header>
+        <img src="./assets/img/logo.png" alt="Logo da empresa" class="logo" id="logo"/>
+        
+        <h1>SkillMatch</h1>
+        <p>Descubra sua compatibilidade com vagas de front-end</p>
+        <button id="botao-tema" type="button" aria-label="Alternar tema claro e escuro">dark mode</button>
+    </header>
+    
+    <!-- conteudo principal -->
+     <main>
+    <!-- Parte 1: formulário do perfil -->
+     <section aria-labelledby="titulo-perfil">
+        <h2 id="titulo-perfil">Seu perfil</h2>
+        <form id="form-perfil" novalidate>
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required/>
+            </div>
+             <div>
+                <label for="area">Área de interesse:</label>
+                <input type="text" id="area" name="area" required/>
+            </div>
+             <div>
+                <label for="habilidades">Digite suas habilidades (separadas por vírgula):</label>
+                <input type="text" id="habilidades" name="habilidades" placeholder="HTML, CSS, Javascript"/>
+            </div>
+             <div>
+                <label for="experiencia">Experiência (em meses):</label>
+                <input type="number" id="experiencia" name="experiencia" min="0" required/>
+            </div>
+
+            <button type="submit">Encontrar vagas</button>
+
+             <!-- mensagem de erro -->
+            <p id="form-erro" class="erro" role="alert" aria-live="assertive"></p>  
+        </form>
+     </section>
+
+    <!-- Parte 2: Resultados da busca -->
+     <section aria-labelledby="titulo-resultados">
+        <h2 id="titulo-resultados">Vagas encontradas</h2>
+        <p id="status" aria-live="polite"></p>   <!-- status: "carregando... erro..."" -->
+
+        <div id="filtro-container">
+             <label for="filtro-ordenacao">Ordenar por:</label>
+            <select id="filtro-ordenacao">
+             <option value="compatibilidade">Mais compatíveis</option>
+             <option value="distancia">Mais próximas</option>
+             </select>
+        </div>
+
+       
+        <div id="destaque"></div> <!-- melhor vaga encontrada -->
+        <div id="lista-vagas" class="grade-vagas"></div> <!-- lista com as outras vagas -->
+     </section>
+     </main>
+
+     <!-- Rodapé -->
+      <footer>
+        <p>Projeto SkillMatch - Aline Volpatto · SENAI/SC 2026</p>
+      </footer>
+
+      <script type="module" src="./assets/scripts/main.js"></script>
+</body>
+</html>
