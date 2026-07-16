@@ -55,7 +55,23 @@ Como o projeto utiliza módulos ES e `fetch`, é necessário rodá-lo através d
 - **Persistência de perfil:** os dados do candidato são lembrados ao recarregar a página.
 - **Design responsivo:** layout adaptado para desktop e mobile, com esquemas de cores distintos.
 
-<!-- Prints das telas serão adicionados aqui -->
+
+## Prints 
+
+### Tela inicial
+![Tela Inicial](./assets/img/prints/tela-inicial.png)
+
+### Resultados da Pesquisa
+![Resultados da pesquisa](./assets/img/prints/resultados-pesquisa.png)
+
+### Dark Mode - Desktop
+![Dark Mode - Desktop](./assets/img/prints/dark-mode-desktop.png)
+
+### Light Mode - Mobile
+![Light Mode - Mobile](./assets/img/prints/light-mode-mobile.png)
+
+### Dark Mode - Mobile
+![Dark Mode - Mobile](./assets/img/prints/dark-mode-mobile.png)
 
 ## Referências e fontes de estudo
 
