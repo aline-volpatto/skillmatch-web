@@ -95,7 +95,7 @@ Todo o código foi digitado e compreendido por mim, adaptando as orientações a
 
 - 🔗 **Repositório:** https://github.com/aline-volpatto/skillmatch-web
 - 📋 **Board do Trello:** https://trello.com/b/r37jZqwz/skillmatch-web
-- 🎥 **Vídeo de apresentação:** <!-- Link do vídeo será adicionado aqui -->
+- 🎥 **Vídeo de apresentação:** https://drive.google.com/file/d/19fkVQ_OKa-1xGcdvTwVYnzPAR5L5HAUS/view?usp=drive_link
 
 ## Autora
 
